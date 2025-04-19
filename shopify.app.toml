@@ -1,0 +1,36 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "b2875ec930b50f5af4750607b76b9ee2"
+name = "Velya AI"
+handle = "velya-ai"
+application_url = "https://app.neurarealm.tech"
+embedded = true
+
+[build]
+include_config_on_deploy = true
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2025-04"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_checkouts,read_customers,read_locales,read_markets_home,read_orders,read_products,read_shipping,write_checkouts,write_customers,write_orders,write_products"
+
+[auth]
+redirect_urls = [
+  "https://app.neurarealm.tech/auth/callback",
+  "https://app.neurarealm.tech/auth/shopify/callback",
+  "https://app.neurarealm.tech/api/auth/callback"
+]
+
+[pos]
+embedded = false
