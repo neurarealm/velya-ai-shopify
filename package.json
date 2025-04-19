@@ -2,8 +2,8 @@
   "name": "velya-ai",
   "private": true,
   "scripts": {
-    "build": "remix vite:build",
-    "dev": "shopify app dev",
+    "build": "vite build",
+    "dev": "vite",
     "config:link": "shopify app config link",
     "generate": "shopify app generate",
     "deploy": "shopify app deploy",

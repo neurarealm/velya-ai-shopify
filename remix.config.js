@@ -10,10 +10,22 @@ if (
   delete process.env.HOST;
 }
 
+// ***** Default *****
+// /** @type {import('@remix-run/dev').AppConfig} */
+// module.exports = {
+//   ignoredRouteFiles: ["**/.*"],
+//   appDirectory: "app",
+//   serverModuleFormat: "cjs",
+//   dev: { port: process.env.HMR_SERVER_PORT || 8002 },
+//   future: {},
+// };
+
+// ***** Modified for if You Want a Static Frontend on Netlify *****
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
   ignoredRouteFiles: ["**/.*"],
   appDirectory: "app",
+  server: false, // disables server rendering (forces client-only rendering)
   serverModuleFormat: "cjs",
   dev: { port: process.env.HMR_SERVER_PORT || 8002 },
   future: {},
